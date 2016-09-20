@@ -24,7 +24,7 @@ class GameState(object):
     # collect minimal action set
     self.real_actions = self.ale.getMinimalActionSet()
 
-    # height=210, width=160
+    # width=210, height=160
     self._screen = np.empty((210, 160, 1), dtype=np.uint8)
 
     self.reset()
@@ -39,8 +39,8 @@ class GameState(object):
     # reshape it into (210, 160)
     reshaped_screen = np.reshape(self._screen, (210, 160))
     
-    # resize to height=110, width=84
-    resized_screen = cv2.resize(reshaped_screen, (84, 110))
+    # resize to width=110, height=84
+    resized_screen = cv2.resize(reshaped_screen, (110, 84))
     
     x_t = resized_screen[18:102,:]
     if reshape:
